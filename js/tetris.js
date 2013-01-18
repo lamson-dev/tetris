@@ -248,7 +248,7 @@ function canMoveSqLeft(row, col) {
 function canMoveSqRight(row, col) {
 	if(col == 10){ return false; }
 	//if square right of us is active, then we can move there
-	if(isActive(row, col+1)){return true}
+	if(isActive(row, col+1)){return true;}
 	var rtSq = getSq(row, col+1);
 	return (rtSq.hasClass("off"));
 }
