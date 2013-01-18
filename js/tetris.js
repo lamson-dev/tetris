@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	
+	
 	//create central tetris grid
 	var main = $('#mainbox');
 	var div = $('<div>');
@@ -94,6 +95,8 @@ function createTerisBox() {
 //clears squares, resets speed and score, creates a new piece and timer
 function resetClick() {
 	
+	//hide game over
+	$('#gameover').hide();
 	
 	//initialize game
 	SPEED = 310;
@@ -145,13 +148,17 @@ function createNewPiece(){
 	acols = pieceCols[nextPiece].slice();
 	acolor = pieceColors[nextPiece].slice();
 	
-	
 	//if it is hard mode, we only select from the first two pieces
 	var n = $("#hard").is(':checked') ? 2 : 7;
 	
-	//select new next piece at random 
+	//select new next piece at random
 	nextPiece = parseInt(Math.random() * n);
-	$("#nextpiece").text(nextPiece);
+	
+	// uncomment this code to increase frequency of the I shape	
+	//nextPiece2 = parseInt(Math.random() * n);
+	//nextPiece3 = parseInt(Math.random() * n);
+	//if(nextPiece2 === 5 || nextPiece3 === 5) nextPiece = 5;
+	
 	displayNextPiece();
 	
 	//check if the new squares are already active - if so, we lose
@@ -197,7 +204,8 @@ function displayNextPiece() {
 }
 
 function loseGame() {
-	alert("You have lost the game!");
+		//show game over div
+	$('#gameover').show();
 	clearInterval(timer);
 	timer = null;
 }
@@ -240,7 +248,7 @@ function canMoveSqDown(row, col) {
 function canMoveSqLeft(row, col) {
 	if(col == 1){ return false; }
 	//if square left of us is active, then we can move there
-	if(isActive(row, col-1)){ return true}
+	if(isActive(row, col-1)){ return true;}
 	var lfSq = getSq(row, col-1);
 	return (lfSq.hasClass("off"));
 }
@@ -343,7 +351,7 @@ function rotate() {
 
 function isActive(row, col) {
 	for(var i = 0; i < 4; i++){
-		if(arows[i] == row && acols[i] == col){ return true}
+		if(arows[i] == row && acols[i] == col){ return true;}
 	}
 	return false;
 }

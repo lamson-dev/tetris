@@ -17,21 +17,33 @@ body {
 	background-repeat: no-repeat;
 }
 
-#title span {
-	
+.banner{
 	border: black solid 1px;
 	border-radius: 10px;
-	background-color: rgb(239,173,58);
-	padding: 7px;	
+	background-color: rgb(188,122,196);
+	height: 30px;
+	padding: 10px;
+	font-size: 2em;
+	margin: auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
-#title {
-	margin-top: 30px;
-	margin-bottom: 50px;
+#heading {
+	margin-top: 20px;
+	margin-bottom: 40px;
+	width: 775px;
 }
 
 div {
 	border-radius: 10px;
+}
+
+#gameover{
+	position: absolute;
+	top: 25%;
+	left: 20px;
+	width: 80%;
 }
 
 #main {
@@ -47,7 +59,8 @@ div {
 	text-align: center;
 	margin: auto;
 	
-	background-color: rgb(144,126,188);
+/* 	background-color: rgb(144,126,188); */
+/* 	background-color: transparent; */
 	
 	position: relative;
 	overflow: hidden;
